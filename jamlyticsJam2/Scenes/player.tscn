@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c6xoexwe8gfxf"]
+
+[ext_resource type="Script" uid="uid://bj4g6070vmbho" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjgbg"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
+size = Vector2(10, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0iea"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cvnsp"]
+material = SubResource("StandardMaterial3D_v0iea")
+radius = 8.0
+height = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1362860936]
+motion_mode = 1
+script = ExtResource("1_v0iea")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=165886755]
+position = Vector2(0, -1)
+mesh = SubResource("BoxMesh_jjgbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2040725548]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7u77a")
+
+[node name="_Mouth_" type="Area2D" parent="." unique_id=1542827894]
+position = Vector2(10, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="_Mouth_" unique_id=1643582783]
+shape = SubResource("RectangleShape2D_v0iea")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="_Mouth_" unique_id=1913643018]
+modulate = Color(0, 0, 0, 1)
+mesh = SubResource("SphereMesh_cvnsp")
+
+[connection signal="body_entered" from="_Mouth_" to="." method="_on__mouth__body_entered"]
