@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cocdbtt6t7c3n"]
+
+[ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scenes/elemental.gd" id="1_d3s83"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lapod"]
+
+[node name="Elemental" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+script = ExtResource("1_d3s83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
+shape = SubResource("CapsuleShape2D_lapod")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1010609331]
+scale = Vector2(20, 15)
+mesh = SubResource("CapsuleMesh_lapod")
