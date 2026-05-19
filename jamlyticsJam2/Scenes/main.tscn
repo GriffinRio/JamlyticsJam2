@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://bmjd6ko8nbidx"]
 
+[ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cocdbtt6t7c3n" path="res://Scenes/elemental.tscn" id="2_bo1nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjgbg"]
+size = Vector3(10, 10, 1)
+
 [node name="Main" type="Node2D" unique_id=2065038989]
+
+[node name="Player" parent="." unique_id=739193229 instance=ExtResource("1_jjgbg")]
+position = Vector2(304, 297)
+motion_mode = 0
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=458951499]
+position = Vector2(306, 333)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2072962965]
+scale = Vector2(32, 1)
+shape = SubResource("RectangleShape2D_jjgbg")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground" unique_id=1366391638]
+scale = Vector2(32, 1)
+mesh = SubResource("BoxMesh_jjgbg")
+
+[node name="Elemental" parent="." unique_id=1029178296 instance=ExtResource("2_bo1nx")]
+position = Vector2(424, 312)
+element = "Fire"
+
+[node name="Elemental2" parent="." unique_id=1503726034 instance=ExtResource("2_bo1nx")]
+position = Vector2(163, 312)
+element = "Water"

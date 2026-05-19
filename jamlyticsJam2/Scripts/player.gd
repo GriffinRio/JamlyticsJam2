@@ -35,8 +35,13 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+	
 
 
-func _on__mouth__body_entered(body: Node2D) -> void:
-	print(body)
-	pass # Replace with function body.
+
+func _on_mouth_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("Elementals")):
+		stomach[body.element] += 1
+		body.queue_free()
+	
+	
