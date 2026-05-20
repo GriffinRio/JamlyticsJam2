@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbbnr6tryfjs5"
-path="res://.godot/imported/Sprite-0002.png-b2a81cec9a182fbff3d7ed90bd0dfd3c.ctex"
+uid="uid://d4ambdq608e7m"
+path="res://.godot/imported/dinkyStinkyChomp-Sheet_BIG.png-29f2a8210c79b7138a85b2e90aa92e3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprite-0002.png"
-dest_files=["res://.godot/imported/Sprite-0002.png-b2a81cec9a182fbff3d7ed90bd0dfd3c.ctex"]
+source_file="res://Art/Sprites/dinkyStinkyChomp-Sheet_BIG.png"
+dest_files=["res://.godot/imported/dinkyStinkyChomp-Sheet_BIG.png-29f2a8210c79b7138a85b2e90aa92e3c.ctex"]
 
 [params]
 

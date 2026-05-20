@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://drocffpp3o56c"]
 
-[ext_resource type="Texture2D" uid="uid://bbbnr6tryfjs5" path="res://Art/Sprite-0002.png" id="1_bu1b7"]
+[ext_resource type="Texture2D" uid="uid://bbbnr6tryfjs5" path="res://Art/BasicTiles.png" id="1_bu1b7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0f4n"]
 texture = ExtResource("1_bu1b7")
@@ -14,5 +14,5 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/1 = SubResource("TileSetAtlasSource_v0f4n")
