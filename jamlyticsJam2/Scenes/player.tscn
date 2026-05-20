@@ -10,7 +10,6 @@ size = Vector3(20, 20, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1362860936]
-motion_mode = 1
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=165886755]

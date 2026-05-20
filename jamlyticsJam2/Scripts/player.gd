@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 135.0
 const JUMP_VELOCITY = -400.0
 var stomach = {
@@ -31,16 +30,10 @@ func _physics_process(delta: float) -> void:
 	elif(direction < 0):
 		rotation = PI
 	
-	
-
 	move_and_slide()
 	
-
-
-
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Elementals")):
 		stomach[body.element] += 1
 		body.queue_free()
-	
 	
