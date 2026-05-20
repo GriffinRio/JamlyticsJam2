@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
-const SPEED = 135.0
+const SPEED = 70.0
 const JUMP_VELOCITY = -400.0
 var stomach = {
 	"Fire": 0,
 	"Water": 0,
 	"Earth": 0,
 }
+func _ready() -> void:
+	$Pivot/AnimatedSprite2D.animation = "idle"
+	$Pivot/AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -19,21 +22,29 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	#Change to flip_h when dealing with sprites, hopefully stops jumping
-	if(direction > 0):
-		rotation = 0.0
-	elif(direction < 0):
-		rotation = PI
+	if(!$Pivot/AnimatedSprite2D.animation == "chomp"):
+		print($Pivot/AnimatedSprite2D.animation)
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction:
+			$Pivot/AnimatedSprite2D.animation = "walk"
+			velocity.x = direction * SPEED
+			
+		else:
+			$Pivot/AnimatedSprite2D.animation = "idle"
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if(direction < 0):
+			$Pivot.scale.x = -1 
+		elif(direction > 0):
+			$Pivot.scale.x = 1
 	
-	move_and_slide()
+		move_and_slide()
 	
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Elementals")):
+		$Pivot/AnimatedSprite2D.animation = "chomp"
+		await $Pivot/AnimatedSprite2D.animation_finished
+		$Pivot/AnimatedSprite2D.animation = "idle"
+		$Pivot/AnimatedSprite2D.play()
 		stomach[body.element] += 1
 		body.queue_free()
-	
+		

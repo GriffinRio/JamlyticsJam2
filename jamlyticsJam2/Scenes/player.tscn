@@ -1,30 +1,143 @@
 [gd_scene format=3 uid="uid://c6xoexwe8gfxf"]
 
 [ext_resource type="Script" uid="uid://bj4g6070vmbho" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://bdliqbitwkf7p" path="res://Art/Sprites/dinkyStinkyChomp-Sheet.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dhq1jyqqoer8w" path="res://Art/Sprites/dinkyStinkyWalk.png" id="2_cvnsp"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jjgbg"]
-size = Vector3(20, 20, 1)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
+radius = 5.5
+height = 28.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u77a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3wgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}],
+"loop": false,
+"name": &"chomp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 4.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1362860936]
+top_level = true
 script = ExtResource("1_v0iea")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=165886755]
-position = Vector2(0, -1)
-mesh = SubResource("BoxMesh_jjgbg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2040725548]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_7u77a")
+position = Vector2(0, -6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_6t5aa")
 
-[node name="Mouth" type="Area2D" parent="." unique_id=1355666810]
-position = Vector2(11, -1)
+[node name="Pivot" type="Node2D" parent="." unique_id=348292701]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1102710186]
+position = Vector2(0, -16)
+rotation = -0.0011858706
+sprite_frames = SubResource("SpriteFrames_x3wgy")
+animation = &"chomp"
+flip_h = true
+
+[node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]
+position = Vector2(5, -6)
+collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth" unique_id=1063862382]
-shape = SubResource("CircleShape2D_v0iea")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Mouth" unique_id=1657591187]
+shape = SubResource("CapsuleShape2D_cvnsp")
 
-[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]
+[connection signal="body_entered" from="Pivot/Mouth" to="." method="_on_mouth_body_entered"]
