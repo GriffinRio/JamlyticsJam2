@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhq1jyqqoer8w"
-path="res://.godot/imported/dinkyStinkyWalk.png-93c2e5139652edf217106442c9ae9c51.ctex"
+uid="uid://hn6bxwkkuui3"
+path="res://.godot/imported/dinkyStinkyChomp-Sheet_UPDATE.png-de2487b889b1757074e410b47631770d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/dinkyStinkyWalk.png"
-dest_files=["res://.godot/imported/dinkyStinkyWalk.png-93c2e5139652edf217106442c9ae9c51.ctex"]
+source_file="res://Art/Sprites/dinkyStinkyChomp-Sheet_UPDATE.png"
+dest_files=["res://.godot/imported/dinkyStinkyChomp-Sheet_UPDATE.png-de2487b889b1757074e410b47631770d.ctex"]
 
 [params]
 

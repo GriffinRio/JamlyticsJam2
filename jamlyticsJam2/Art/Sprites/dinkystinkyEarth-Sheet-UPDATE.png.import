@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdliqbitwkf7p"
-path="res://.godot/imported/dinkyStinkyChomp-Sheet.png-2b7d68c114dbe557f7ca2a6cb52d9024.ctex"
+uid="uid://l8sbdg66rth8"
+path="res://.godot/imported/dinkystinkyEarth-Sheet-UPDATE.png-3cec596f0579bf6353003d08b8b932d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/dinkyStinkyChomp-Sheet.png"
-dest_files=["res://.godot/imported/dinkyStinkyChomp-Sheet.png-2b7d68c114dbe557f7ca2a6cb52d9024.ctex"]
+source_file="res://Art/Sprites/dinkystinkyEarth-Sheet-UPDATE.png"
+dest_files=["res://.godot/imported/dinkystinkyEarth-Sheet-UPDATE.png-3cec596f0579bf6353003d08b8b932d0.ctex"]
 
 [params]
 
