@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cxo6ynyraoyec"]
+
+[ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_2mywr"]
+[ext_resource type="Texture2D" uid="uid://q66qa27p62pk" path="res://Art/Sprites/rockGolem-Sheet.png" id="2_ge013"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
+radius = 22.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew6k1"]
+atlas = ExtResource("2_ge013")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u00te"]
+atlas = ExtResource("2_ge013")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aem2w"]
+atlas = ExtResource("2_ge013")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vdn7"]
+atlas = ExtResource("2_ge013")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7boif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew6k1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew6k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u00te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aem2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vdn7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Earth" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2mywr")
+element = "Earth"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_lapod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730771902]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_7boif")
+animation = &"walk"

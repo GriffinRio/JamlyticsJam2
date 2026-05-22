@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://xab16urw0umi"]
+
+[ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_l36u2"]
+[ext_resource type="Texture2D" uid="uid://v6d1g8v8lajt" path="res://Art/Sprites/fishWalk.png" id="2_414xu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq80p"]
+atlas = ExtResource("2_414xu")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or3lr"]
+atlas = ExtResource("2_414xu")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kdna"]
+atlas = ExtResource("2_414xu")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02j1w"]
+atlas = ExtResource("2_414xu")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rom4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq80p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq80p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or3lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kdna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02j1w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Water" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_l36u2")
+element = "Water"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_lapod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730771902]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_5rom4")
+animation = &"idle"

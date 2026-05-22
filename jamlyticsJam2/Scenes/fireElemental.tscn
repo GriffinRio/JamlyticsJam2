@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cocdbtt6t7c3n"]
+
+[ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_d3s83"]
+[ext_resource type="Texture2D" uid="uid://c03ihpgs74hm1" path="res://Art/Sprites/Imp-Sheet.png" id="2_cfhpg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxyvm"]
+atlas = ExtResource("2_cfhpg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqoxp"]
+atlas = ExtResource("2_cfhpg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhsng"]
+atlas = ExtResource("2_cfhpg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajdsb"]
+atlas = ExtResource("2_cfhpg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swc14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxyvm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqoxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxyvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhsng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajdsb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.5
+}]
+
+[node name="Fire" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_d3s83")
+element = "Fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_lapod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730771902]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_swc14")
+animation = &"walk"
+frame = 1
+frame_progress = 0.7675389
