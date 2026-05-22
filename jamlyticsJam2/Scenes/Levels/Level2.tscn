@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="2_m40gi"]
 [ext_resource type="PackedScene" uid="uid://xab16urw0umi" path="res://Scenes/waterElemental.tscn" id="3_svn12"]
 
+[sub_resource type="Curve2D" id="Curve2D_svn12"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 517, 352, 0, 0, 0, 0, 363, 352, 0, 0, 0, 0, 517, 352)
+}
+point_count = 3
+
 [node name="Level2" type="Node2D" unique_id=1579211794]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=629529373]
@@ -13,5 +19,17 @@ tile_set = ExtResource("1_0ryud")
 [node name="Player" parent="." unique_id=1362860936 instance=ExtResource("2_m40gi")]
 position = Vector2(53, 288)
 
-[node name="Water" parent="." unique_id=1503726034 instance=ExtResource("3_svn12")]
-position = Vector2(433, 352)
+[node name="Water" parent="." unique_id=1503726034 node_paths=PackedStringArray("path") instance=ExtResource("3_svn12")]
+position = Vector2(517, 352)
+scale = Vector2(-1, 1)
+path = NodePath("../WaterPath/PathFollow2D")
+
+[node name="WaterPath" type="Path2D" parent="." unique_id=2112298367]
+curve = SubResource("Curve2D_svn12")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="WaterPath" unique_id=369033994]
+position = Vector2(517, 352)
+rotation = 3.1415927
+rotates = false
+
+[connection signal="eating_elemental" from="Player" to="Water" method="_on_player_eating_elemental"]

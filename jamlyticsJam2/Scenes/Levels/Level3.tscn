@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="2_y6rnf"]
 [ext_resource type="PackedScene" uid="uid://cxo6ynyraoyec" path="res://Scenes/earthElemental.tscn" id="3_c01y6"]
 
+[sub_resource type="Curve2D" id="Curve2D_y6rnf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 232, 192, 0, 0, 0, 0, 344, 192, 0, 0, 0, 0, 232, 192)
+}
+point_count = 3
+
 [node name="Level3" type="Node2D" unique_id=1390441433]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=722868796]
@@ -13,5 +19,15 @@ tile_set = ExtResource("1_y77v7")
 [node name="Player" parent="." unique_id=1362860936 instance=ExtResource("2_y6rnf")]
 position = Vector2(51, 128)
 
-[node name="Earth" parent="." unique_id=1503726034 instance=ExtResource("3_c01y6")]
-position = Vector2(337, 192)
+[node name="Earth" parent="." unique_id=1503726034 node_paths=PackedStringArray("path") instance=ExtResource("3_c01y6")]
+position = Vector2(232, 192)
+path = NodePath("../EarthPath/PathFollow2D")
+
+[node name="EarthPath" type="Path2D" parent="." unique_id=24883278]
+curve = SubResource("Curve2D_y6rnf")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EarthPath" unique_id=1639697994]
+position = Vector2(232, 192)
+rotates = false
+
+[connection signal="eating_elemental" from="Player" to="Earth" method="_on_player_eating_elemental"]
