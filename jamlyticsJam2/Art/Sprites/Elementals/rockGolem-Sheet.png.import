@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhq1jyqqoer8w"
-path="res://.godot/imported/dinkyStinkyWalk.png-cd67c1aafa8d87dcffab6681b6f88a1a.ctex"
+uid="uid://q66qa27p62pk"
+path="res://.godot/imported/rockGolem-Sheet.png-7ff0d35efd1370a68a163131d253fe5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Old/dinkyStinkyWalk.png"
-dest_files=["res://.godot/imported/dinkyStinkyWalk.png-cd67c1aafa8d87dcffab6681b6f88a1a.ctex"]
+source_file="res://Art/Sprites/Elementals/rockGolem-Sheet.png"
+dest_files=["res://.godot/imported/rockGolem-Sheet.png-7ff0d35efd1370a68a163131d253fe5d.ctex"]
 
 [params]
 

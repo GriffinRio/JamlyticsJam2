@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q66qa27p62pk"
-path="res://.godot/imported/rockGolem-Sheet.png-7fdd3442f1d2ced3944f093eb3e7b2b0.ctex"
+uid="uid://bo7spmjvvetkn"
+path="res://.godot/imported/dinkystinky_air.png-948ab6c4d840419a3aa029a86b3daf24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/rockGolem-Sheet.png"
-dest_files=["res://.godot/imported/rockGolem-Sheet.png-7fdd3442f1d2ced3944f093eb3e7b2b0.ctex"]
+source_file="res://Art/Sprites/dinkystinky_air.png"
+dest_files=["res://.godot/imported/dinkystinky_air.png-948ab6c4d840419a3aa029a86b3daf24.ctex"]
 
 [params]
 

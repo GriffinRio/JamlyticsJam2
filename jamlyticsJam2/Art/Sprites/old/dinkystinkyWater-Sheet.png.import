@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn2f20hkobqje"
-path="res://.godot/imported/dinkystinkyWater-Sheet.png-06298362e32c0182c630d470046e4171.ctex"
+path="res://.godot/imported/dinkystinkyWater-Sheet.png-03ce598f4f9d6b8b6df1f5b4def2243f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/old/dinkystinkyWater-Sheet.png"
-dest_files=["res://.godot/imported/dinkystinkyWater-Sheet.png-06298362e32c0182c630d470046e4171.ctex"]
+source_file="res://Art/Sprites/Old/dinkystinkyWater-Sheet.png"
+dest_files=["res://.godot/imported/dinkystinkyWater-Sheet.png-03ce598f4f9d6b8b6df1f5b4def2243f.ctex"]
 
 [params]
 

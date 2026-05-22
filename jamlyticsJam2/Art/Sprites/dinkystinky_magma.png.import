@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhq1jyqqoer8w"
-path="res://.godot/imported/dinkyStinkyWalk.png-cd67c1aafa8d87dcffab6681b6f88a1a.ctex"
+uid="uid://dgq03ibtq3xe7"
+path="res://.godot/imported/dinkystinky_magma.png-3fe820275b0318a2765a0569df01a605.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Old/dinkyStinkyWalk.png"
-dest_files=["res://.godot/imported/dinkyStinkyWalk.png-cd67c1aafa8d87dcffab6681b6f88a1a.ctex"]
+source_file="res://Art/Sprites/dinkystinky_magma.png"
+dest_files=["res://.godot/imported/dinkystinky_magma.png-3fe820275b0318a2765a0569df01a605.ctex"]
 
 [params]
 

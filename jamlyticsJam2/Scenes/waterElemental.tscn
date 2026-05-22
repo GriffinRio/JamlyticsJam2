@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xab16urw0umi"]
 
 [ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_l36u2"]
-[ext_resource type="Texture2D" uid="uid://v6d1g8v8lajt" path="res://Art/Sprites/fishWalk.png" id="2_414xu"]
+[ext_resource type="Texture2D" uid="uid://v6d1g8v8lajt" path="res://Art/Sprites/Elementals/fishWalk.png" id="2_414xu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
 height = 48.0

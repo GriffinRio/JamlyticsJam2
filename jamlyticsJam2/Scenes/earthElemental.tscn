@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxo6ynyraoyec"]
 
 [ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_2mywr"]
-[ext_resource type="Texture2D" uid="uid://q66qa27p62pk" path="res://Art/Sprites/rockGolem-Sheet.png" id="2_ge013"]
+[ext_resource type="Texture2D" uid="uid://q66qa27p62pk" path="res://Art/Sprites/Elementals/rockGolem-Sheet.png" id="2_ge013"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
 radius = 22.0

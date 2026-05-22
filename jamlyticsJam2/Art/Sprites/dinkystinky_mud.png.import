@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v6d1g8v8lajt"
-path="res://.godot/imported/fishWalk.png-3d9755cac395cf3b912ba78ae0866aed.ctex"
+uid="uid://bis5c4csa7hu"
+path="res://.godot/imported/dinkystinky_mud.png-5134da01e7f91c7902aa1fe8b1ebdb67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/fishWalk.png"
-dest_files=["res://.godot/imported/fishWalk.png-3d9755cac395cf3b912ba78ae0866aed.ctex"]
+source_file="res://Art/Sprites/dinkystinky_mud.png"
+dest_files=["res://.godot/imported/dinkystinky_mud.png-5134da01e7f91c7902aa1fe8b1ebdb67.ctex"]
 
 [params]
 

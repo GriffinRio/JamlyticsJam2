@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cocdbtt6t7c3n"]
 
 [ext_resource type="Script" uid="uid://f8nw25c1nw8r" path="res://Scripts/elemental.gd" id="1_d3s83"]
-[ext_resource type="Texture2D" uid="uid://c03ihpgs74hm1" path="res://Art/Sprites/Imp-Sheet.png" id="2_cfhpg"]
+[ext_resource type="Texture2D" uid="uid://c03ihpgs74hm1" path="res://Art/Sprites/Elementals/Imp-Sheet.png" id="2_cfhpg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
 radius = 8.0

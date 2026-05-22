@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c03ihpgs74hm1"
-path="res://.godot/imported/Imp-Sheet.png-0bbb7c27cf88a5d5f546810dd80e4f54.ctex"
+uid="uid://v6d1g8v8lajt"
+path="res://.godot/imported/fishWalk.png-bcde83d387d8212f45adc3cc2aa7227e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Imp-Sheet.png"
-dest_files=["res://.godot/imported/Imp-Sheet.png-0bbb7c27cf88a5d5f546810dd80e4f54.ctex"]
+source_file="res://Art/Sprites/Elementals/fishWalk.png"
+dest_files=["res://.godot/imported/fishWalk.png-bcde83d387d8212f45adc3cc2aa7227e.ctex"]
 
 [params]
 
