@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://kh6lcggafegy" path="res://Art/Sprites/dinkystinkyWater-Sheet-Chomp1.png" id="15_2ijsl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
-radius = 5.5
+radius = 5.0
 height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
@@ -895,7 +895,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -26)
 rotation = -0.0011858706
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"Water_Chomp"
+animation = &"Neutral_Walk"
 flip_h = true
 
 [node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]
