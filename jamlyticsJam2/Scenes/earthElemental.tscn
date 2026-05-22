@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://q66qa27p62pk" path="res://Art/Sprites/Elementals/rockGolem-Sheet.png" id="2_ge013"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
-radius = 22.0
-height = 48.0
+radius = 17.0
+height = 46.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ew6k1"]
 atlas = ExtResource("2_ge013")
@@ -55,9 +55,10 @@ animations = [{
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2mywr")
+element = "Earth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
-position = Vector2(0, -24)
+position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_lapod")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=691668067]
