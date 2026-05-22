@@ -1,22 +1,25 @@
 [gd_scene format=4 uid="uid://bmjd6ko8nbidx"]
 
 [ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://cocdbtt6t7c3n" path="res://Scenes/elemental.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cocdbtt6t7c3n" path="res://Scenes/fireElemental.tscn" id="2_bo1nx"]
 [ext_resource type="TileSet" uid="uid://drocffpp3o56c" path="res://Art/tiles.tres" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://xab16urw0umi" path="res://Scenes/waterElemental.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cxo6ynyraoyec" path="res://Scenes/earthElemental.tscn" id="4_21xkr"]
 
 [node name="Main" type="Node2D" unique_id=2065038989]
 
 [node name="Player" parent="." unique_id=739193229 instance=ExtResource("1_jjgbg")]
 position = Vector2(304, 297)
 
-[node name="Elemental" parent="." unique_id=1029178296 instance=ExtResource("2_bo1nx")]
-position = Vector2(427, 299)
-element = "Fire"
-
-[node name="Elemental2" parent="." unique_id=1503726034 instance=ExtResource("2_bo1nx")]
-position = Vector2(160, 298)
-element = "Water"
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=611029633]
 tile_map_data = PackedByteArray("AAAAAAoAAQAAAAEAAAABAAoAAQAAAAEAAAACAAoAAQAAAAEAAAADAAoAAQAAAAEAAAAEAAoAAQAAAAEAAAAFAAoAAQAAAAEAAAAGAAoAAQAAAAEAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAEAAAAJAAoAAQAAAAEAAAAKAAoAAQAAAAEAAAALAAoAAQAAAAEAAAAMAAoAAQAAAAEAAAANAAoAAQAAAAEAAAAOAAoAAQAAAAEAAAAPAAoAAQAAAAEAAAAQAAoAAQAAAAEAAAARAAoAAQAAAAEAAAASAAoAAQAAAAEAAAATAAoAAQAAAAEAAAA=")
 tile_set = ExtResource("3_8gbba")
+
+[node name="Water" parent="." unique_id=1503726034 instance=ExtResource("3_kry3j")]
+position = Vector2(164, 306)
+
+[node name="Earth" parent="." unique_id=332143207 instance=ExtResource("4_21xkr")]
+position = Vector2(501, 305)
+
+[node name="Fire" parent="." unique_id=1508103304 instance=ExtResource("2_bo1nx")]
+position = Vector2(421, 301)
