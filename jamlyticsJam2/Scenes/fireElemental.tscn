@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c03ihpgs74hm1" path="res://Art/Sprites/Elementals/Imp-Sheet.png" id="2_cfhpg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lapod"]
-radius = 8.0
+radius = 7.0
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxyvm"]
 atlas = ExtResource("2_cfhpg")
@@ -29,7 +30,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qxyvm")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Idle",
 "speed": 3.5
 }, {
 "frames": [{
@@ -46,23 +47,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_ajdsb")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Walk",
 "speed": 3.5
 }]
 
-[node name="Fire" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+[node name="Fire" type="CharacterBody2D" unique_id=1349371243 groups=["Elementals"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_d3s83")
 element = "Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
-position = Vector2(0, -15)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_lapod")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730771902]
+[node name="Pivot" type="Node2D" parent="." unique_id=144580172]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=730771902]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_swc14")
-animation = &"walk"
-frame = 1
-frame_progress = 0.7675389
+animation = &"Walk"

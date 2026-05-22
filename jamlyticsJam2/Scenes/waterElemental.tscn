@@ -29,7 +29,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jq80p")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -46,21 +46,22 @@ animations = [{
 "texture": SubResource("AtlasTexture_02j1w")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Walk",
 "speed": 5.0
 }]
 
-[node name="Water" type="RigidBody2D" unique_id=1503726034 groups=["Elementals"]]
+[node name="Water" type="CharacterBody2D" unique_id=1346462176 groups=["Elementals"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_l36u2")
-element = "Water"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951250647]
 position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_lapod")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730771902]
+[node name="Pivot" type="Node2D" parent="." unique_id=38682439]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=730771902]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_5rom4")
-animation = &"idle"
+animation = &"Walk"
