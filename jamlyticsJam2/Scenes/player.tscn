@@ -117,7 +117,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tx1dd")
 }],
 "loop": false,
-"name": &"big_chomp",
+"name": &"Big_Chomp",
 "speed": 5.0
 }, {
 "frames": [{
@@ -146,7 +146,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_igrcy")
 }],
 "loop": false,
-"name": &"chomp",
+"name": &"Chomp",
 "speed": 5.0
 }, {
 "frames": [{
@@ -154,7 +154,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fs7ks")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Idle",
 "speed": 3.5
 }, {
 "frames": [{
@@ -168,7 +168,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wpjfl")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Walk",
 "speed": 3.5
 }]
 
@@ -186,18 +186,18 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_6t5aa")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=348292701]
+position = Vector2(0, -6)
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1102710186]
-position = Vector2(0, -32)
+position = Vector2(0, -26)
 rotation = -0.0011858706
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"chomp"
-frame = 7
-frame_progress = 1.0
+animation = &"Big_Chomp"
 flip_h = true
 
 [node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]
-position = Vector2(5, -6)
+position = Vector2(5, -1)
 collision_layer = 0
 collision_mask = 2
 metadata/_edit_group_ = true
