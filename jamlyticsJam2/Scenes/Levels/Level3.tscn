@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://drocffpp3o56c" path="res://Art/tiles.tres" id="1_y77v7"]
 [ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="2_y6rnf"]
-[ext_resource type="PackedScene" uid="uid://cxo6ynyraoyec" path="res://Scenes/earthElemental.tscn" id="3_c01y6"]
+[ext_resource type="PackedScene" uid="uid://cxo6ynyraoyec" path="res://Scenes/Elementals/earthElemental.tscn" id="3_c01y6"]
 
 [sub_resource type="Curve2D" id="Curve2D_y6rnf"]
 _data = {
