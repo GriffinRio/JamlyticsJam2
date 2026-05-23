@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnvq5277qo7ol"]
+
+[ext_resource type="Script" uid="uid://0gvo70u5nwq4" path="res://Scripts/fireball.gd" id="1_o3bqg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gk7c"]
+radius = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_5gk7c"]
+radius = 6.0
+height = 12.0
+
+[node name="Fireball" type="Area2D" unique_id=778422823]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_o3bqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=195289424]
+shape = SubResource("CircleShape2D_5gk7c")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1445570403]
+modulate = Color(1, 0, 0, 1)
+mesh = SubResource("SphereMesh_5gk7c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

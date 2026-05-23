@@ -876,7 +876,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 4.0
-height = 14.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1362860936]
 top_level = true

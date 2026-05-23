@@ -13,6 +13,15 @@ const element_types = { # Easy way to determine type based on what's eaten
 	[0,1,1]: "Mud",
 	[1,1,1]: "Full",
 }
+var abilities = {
+	"Fire": fire_ability,
+	"Water": water_ability,
+	"Earth": earth_ability,
+	"Steam": steam_ability,
+	"Magma": magma_ability,
+	"Mud": mud_ability,
+}
+var fire_scene = preload("res://Scenes/Abilities/Fireball.tscn")
 # Variables
 var type = "Neutral"
 var eating = false
@@ -75,3 +84,36 @@ func _on_mouth_body_entered(body: Node2D) -> void:
 		# Allows player movement and deletes elemental
 		eating = false
 		body.queue_free()
+
+func _input(event: InputEvent) -> void:
+	if(event.is_action_pressed("Ability")):
+		if(type != "Neutral" && type != "Full"):
+			abilities[type].call()
+		else:
+			print("No ability")
+	elif(event.is_action_pressed("Pause")):
+		get_tree().quit()
+
+func fire_ability():
+	var x_direction = Input.get_axis("move_left", "move_right")
+	# Y is flipped
+	var y_direction = Input.get_axis("Up", "Down")
+	var fireball = fire_scene.instantiate()
+	fireball.direction = Vector2(x_direction, y_direction)
+	owner.add_child(fireball)
+	fireball.position = $Pivot/Mouth.global_position
+
+func water_ability():
+	print("Bubble")
+
+func earth_ability():
+	print("Rock")
+	
+func steam_ability():
+	print("Float")
+
+func magma_ability():
+	print("Lava")
+
+func mud_ability():
+	print("Quicksand")
