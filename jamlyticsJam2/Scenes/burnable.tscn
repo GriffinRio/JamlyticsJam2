@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c88ogkd8yi7la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h3jv"]
+size = Vector2(64, 128)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pg0w"]
+size = Vector3(64, 128, 1)
+
+[node name="Burnable" type="StaticBody2D" unique_id=1185998587 groups=["Burnable"]]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642714483]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_5h3jv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1243074486]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(0, -64)
+mesh = SubResource("BoxMesh_3pg0w")

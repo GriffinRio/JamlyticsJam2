@@ -85,6 +85,11 @@ func _on_mouth_body_entered(body: Node2D) -> void:
 		eating = false
 		body.queue_free()
 
+func _on_mouth_area_entered(area: Area2D) -> void:
+	# Detects exit. Kinda weird to be here, but works
+	if(area.name == "Exit"):
+		print("Leave")
+	
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Ability")):
 		if(type != "Neutral" && type != "Full"):

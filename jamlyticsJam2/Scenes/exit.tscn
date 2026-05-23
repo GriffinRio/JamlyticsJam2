@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cnt7qbt3f5n81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsbdy"]
+size = Vector2(34, 70)
+
+[sub_resource type="BoxMesh" id="BoxMesh_35a55"]
+size = Vector3(34, 70, 1)
+
+[node name="Exit" type="Area2D" unique_id=1761480020]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2125213804]
+position = Vector2(1, -35)
+shape = SubResource("RectangleShape2D_xsbdy")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=603314658]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1, -35)
+mesh = SubResource("BoxMesh_35a55")

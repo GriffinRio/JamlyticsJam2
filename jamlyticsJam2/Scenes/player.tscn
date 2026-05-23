@@ -895,7 +895,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -26)
 rotation = -0.0011858706
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"Neutral_Walk"
+animation = &"Earth_Big_Chomp"
 flip_h = true
 
 [node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]
@@ -907,4 +907,5 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Mouth" unique_id=1657591187]
 shape = SubResource("CapsuleShape2D_cvnsp")
 
+[connection signal="area_entered" from="Pivot/Mouth" to="." method="_on_mouth_area_entered"]
 [connection signal="body_entered" from="Pivot/Mouth" to="." method="_on_mouth_body_entered"]
