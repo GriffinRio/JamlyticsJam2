@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://knxqnyhfu7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkjnc"]
+size = Vector2(28, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1cmwl"]
+size = Vector3(28, 12, 1)
+
+[node name="Button" type="Area2D" unique_id=1467036062]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2143851054]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_lkjnc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=529443109]
+position = Vector2(0, -6)
+mesh = SubResource("BoxMesh_1cmwl")

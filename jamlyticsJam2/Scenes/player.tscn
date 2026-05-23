@@ -895,7 +895,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -26)
 rotation = -0.0011858706
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"Earth_Big_Chomp"
+animation = &"Neutral_Idle"
 flip_h = true
 
 [node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]

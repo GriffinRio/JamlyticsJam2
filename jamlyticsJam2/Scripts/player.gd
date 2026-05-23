@@ -22,6 +22,7 @@ var abilities = {
 	"Mud": mud_ability,
 }
 var fire_scene = preload("res://Scenes/Abilities/Fireball.tscn")
+var earth_scene = preload("res://Scenes/Abilities/rock.tscn")
 # Variables
 var type = "Neutral"
 var eating = false
@@ -106,13 +107,16 @@ func fire_ability():
 	var fireball = fire_scene.instantiate()
 	fireball.direction = Vector2(x_direction, y_direction)
 	owner.add_child(fireball)
+	#Test why this doesn't work before when Rock does.
 	fireball.position = $Pivot/Mouth.global_position
 
 func water_ability():
 	print("Bubble")
 
 func earth_ability():
-	print("Rock")
+	var rock = earth_scene.instantiate()
+	rock.position = global_position + Vector2($Pivot.scale.x * 25, -5)
+	owner.add_child(rock)
 	
 func steam_ability():
 	print("Float")
