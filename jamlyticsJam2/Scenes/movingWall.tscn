@@ -1,17 +1,79 @@
 [gd_scene format=3 uid="uid://d2fjng6abda66"]
 
+[ext_resource type="Script" uid="uid://bfl5duafgxj3g" path="res://Scripts/moving_wall.gd" id="1_j5wkp"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eywfq"]
 size = Vector2(32, 96)
 
 [sub_resource type="BoxMesh" id="BoxMesh_eywfq"]
 size = Vector3(32, 96, 1)
 
-[node name="MovingWall" type="StaticBody2D" unique_id=1819423243]
+[sub_resource type="Animation" id="Animation_j5wkp"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -64), Vector2(0, 0)]
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336249836]
+[sub_resource type="Animation" id="Animation_distb"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -64)]
+}
+
+[sub_resource type="Animation" id="Animation_alq1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynubu"]
+_data = {
+&"Close": SubResource("Animation_j5wkp"),
+&"Open": SubResource("Animation_distb"),
+&"RESET": SubResource("Animation_alq1u")
+}
+
+[node name="MovingWall" type="Node2D" unique_id=629296066]
+script = ExtResource("1_j5wkp")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1819423243]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1336249836]
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_eywfq")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1291027326]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall" unique_id=1291027326]
 position = Vector2(0, -48)
 mesh = SubResource("BoxMesh_eywfq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2144229723]
+root_node = NodePath("../Wall")
+libraries/ = SubResource("AnimationLibrary_ynubu")
