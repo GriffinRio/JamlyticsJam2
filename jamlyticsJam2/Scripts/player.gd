@@ -25,8 +25,9 @@ var fire_scene = preload("res://Scenes/Abilities/Fireball.tscn")
 var earth_scene = preload("res://Scenes/Abilities/rock.tscn")
 # Variables
 var type = "Neutral"
-var eating = false
+var movable = true
 var stomach = [0, 0, 0] #[Fire, Water, Earth]
+var floating = false
 
 func _ready() -> void:
 	# Starts animator on Nuetral_Idle everytime
@@ -35,11 +36,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if(floating):
+		velocity.y = 2 * -SPEED
+	elif(!is_on_floor()):
 		velocity += get_gravity() * delta
-	# Handles movement IF player currently not eating a elemental
-	# Gravity currently doesn't work while eating
-	if(!eating):
+	# Handles movement IF player currently not doing something else
+	# Gravity currently doesn't work while immovable
+	if(movable):
 		var direction = Input.get_axis("move_left", "move_right")
 		if direction:
 			animator.animation = type + "_Walk"
@@ -52,7 +55,9 @@ func _physics_process(delta: float) -> void:
 			$Pivot.scale.x = -1 
 		elif(direction > 0):
 			$Pivot.scale.x = 1
-		move_and_slide()
+	else:
+		velocity.x = 0
+	move_and_slide()
 
 ## Updates current type of the player based on what was eaten
 func update_type(element):
@@ -70,7 +75,7 @@ func update_type(element):
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Elementals")):
 		# Stops movement of player AND elemental being eaten
-		eating = true
+		movable = false
 		eating_elemental.emit(body)
 		# Choosed correct chomp animation and waits till it's done
 		if(body.element == "Fire"):
@@ -83,7 +88,7 @@ func _on_mouth_body_entered(body: Node2D) -> void:
 		animator.animation = type + "_Idle"
 		animator.play()
 		# Allows player movement and deletes elemental
-		eating = false
+		movable = true
 		body.queue_free()
 
 func _on_mouth_area_entered(area: Area2D) -> void:
@@ -97,6 +102,9 @@ func _input(event: InputEvent) -> void:
 			abilities[type].call()
 		else:
 			print("No ability")
+	elif(event.is_action_released("Ability")):
+		if(type == "Water"):
+			abilities[type].call()
 	elif(event.is_action_pressed("Pause")):
 		get_tree().quit()
 
@@ -111,7 +119,8 @@ func fire_ability():
 	fireball.position = $Pivot/Mouth.global_position
 
 func water_ability():
-	print("Bubble")
+	floating = !floating
+	movable = !movable
 
 func earth_ability():
 	var rock = earth_scene.instantiate()
