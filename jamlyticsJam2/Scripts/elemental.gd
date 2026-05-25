@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# Follows path if there is one AND player not currently eating them
-	# Gravity currently doesn't when no path set AND player eating elemental
 	if(!being_eaten && path != null):
 		# Progress the path forward
 		path.progress += SPEED * delta
@@ -37,7 +36,10 @@ func _physics_process(delta: float) -> void:
 			$Pivot.scale.x = 1 
 		elif(direction.x > 0):
 			$Pivot.scale.x = -1
-		move_and_slide()
+	else:
+		velocity.x = 0
+	
+	move_and_slide()
 
 ## Connects to player in scene so elemental knows when to stop moving
 func _on_player_eating_elemental(elemental: Variant) -> void:

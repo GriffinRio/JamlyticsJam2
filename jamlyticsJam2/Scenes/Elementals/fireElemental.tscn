@@ -53,7 +53,7 @@ animations = [{
 
 [node name="Fire" type="CharacterBody2D" unique_id=1349371243 groups=["Elementals"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_d3s83")
 element = "Fire"
 
