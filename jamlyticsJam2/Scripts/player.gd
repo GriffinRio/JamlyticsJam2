@@ -32,6 +32,7 @@ var movable = true
 var stomach = [0, 0, 0] # [Fire, Water, Earth]
 var floating = false
 
+# FUNCTIONS ----------------------------------------------------------------------
 func _ready() -> void:
 	# Starts animator on Nuetral_Idle everytime
 	animator.animation = type +  "_Idle"
@@ -101,7 +102,6 @@ func _on_mouth_body_entered(body: Node2D) -> void:
 func _on_mouth_area_entered(area: Area2D) -> void:
 	# Detects exit. Kinda weird to be here, but works for now
 	if(area.name == "Exit"):
-		print("Leave")
 		level_complete.emit()
 	
 func _input(event: InputEvent) -> void:
@@ -115,9 +115,9 @@ func _input(event: InputEvent) -> void:
 	elif(event.is_action_released("Ability")):
 		if(type == "Water"):
 			abilities[type].call()
-	# TODO: For future pause menu
-	elif(event.is_action_pressed("Pause")):
-		get_tree().quit()
+
+# ABILITIES ----------------------------------------------------------------------
+
 ## Spawns fireball and sends it in direction player is holding
 func fire_ability():
 	# Get direction
