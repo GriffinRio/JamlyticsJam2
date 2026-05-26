@@ -1,28 +1,41 @@
-[gd_scene format=4 uid="uid://bmjd6ko8nbidx"]
+[gd_scene format=3 uid="uid://bmjd6ko8nbidx"]
 
-[ext_resource type="PackedScene" uid="uid://c6xoexwe8gfxf" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://cocdbtt6t7c3n" path="res://Scenes/Elementals/fireElemental.tscn" id="2_bo1nx"]
-[ext_resource type="TileSet" uid="uid://drocffpp3o56c" path="res://Art/tiles.tres" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://xab16urw0umi" path="res://Scenes/Elementals/waterElemental.tscn" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://cxo6ynyraoyec" path="res://Scenes/Elementals/earthElemental.tscn" id="4_21xkr"]
+[ext_resource type="Script" uid="uid://bvi8yw7o6f6g1" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cl5op3swnwie0" path="res://Scenes/Levels/Level1.tscn" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://got82xaljge1" path="res://Scenes/Levels/Level2.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b735qpffd8ww" path="res://Scenes/Levels/Level3.tscn" id="4_21xkr"]
 
 [node name="Main" type="Node2D" unique_id=2065038989]
+script = ExtResource("1_jjgbg")
+levels = [ExtResource("2_jjvhh"), ExtResource("3_kry3j"), ExtResource("4_21xkr")]
 
-[node name="Player" parent="." unique_id=739193229 instance=ExtResource("1_jjgbg")]
-position = Vector2(304, 297)
+[node name="UI" type="Control" parent="." unique_id=1138707488]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=611029633]
-tile_map_data = PackedByteArray("AAAAAAoAAQAAAAEAAAABAAoAAQAAAAEAAAACAAoAAQAAAAEAAAADAAoAAQAAAAEAAAAEAAoAAQAAAAEAAAAFAAoAAQAAAAEAAAAGAAoAAQAAAAEAAAAHAAoAAQAAAAEAAAAIAAoAAQAAAAEAAAAJAAoAAQAAAAEAAAAKAAoAAQAAAAEAAAALAAoAAQAAAAEAAAAMAAoAAQAAAAEAAAANAAoAAQAAAAEAAAAOAAoAAQAAAAEAAAAPAAoAAQAAAAEAAAAQAAoAAQAAAAEAAAARAAoAAQAAAAEAAAASAAoAAQAAAAEAAAATAAoAAQAAAAEAAAA=")
-tile_set = ExtResource("3_8gbba")
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1523958821]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 175.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
 
-[node name="Water" parent="." unique_id=1503726034 instance=ExtResource("3_kry3j")]
-position = Vector2(165, 319)
+[node name="PlayButton" type="Button" parent="UI/VBoxContainer" unique_id=190582875]
+layout_mode = 2
+text = "Play"
 
-[node name="Earth" parent="." unique_id=332143207 instance=ExtResource("4_21xkr")]
-position = Vector2(502, 320)
+[node name="LevelSelect" type="Button" parent="UI/VBoxContainer" unique_id=774008266]
+layout_mode = 2
+text = "Level Select"
 
-[node name="Fire" parent="." unique_id=1508103304 instance=ExtResource("2_bo1nx")]
-position = Vector2(422, 319)
-
-[node name="Fire2" parent="." unique_id=1349371243 instance=ExtResource("2_bo1nx")]
-position = Vector2(370, 210)
+[connection signal="button_down" from="UI/VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="UI/VBoxContainer/LevelSelect" to="." method="_on_level_select_button_down"]

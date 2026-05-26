@@ -32,10 +32,10 @@ curve = SubResource("Curve2D_riv1q")
 position = Vector2(87, 288)
 rotates = false
 
-[node name="Exit" parent="." unique_id=1761480020 instance=ExtResource("4_xvio3")]
-position = Vector2(620, 288)
-
 [node name="Burnable" parent="." unique_id=265711516 instance=ExtResource("5_kri6y")]
 position = Vector2(320, 288)
+
+[node name="Exit" parent="." unique_id=1761480020 instance=ExtResource("4_xvio3")]
+position = Vector2(620, 288)
 
 [connection signal="eating_elemental" from="Player" to="Fire" method="_on_player_eating_elemental"]

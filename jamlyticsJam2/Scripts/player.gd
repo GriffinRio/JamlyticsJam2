@@ -1,6 +1,9 @@
 extends CharacterBody2D
+# Signals
 ## Emmitted when player starts eating an elemental
 signal eating_elemental(elemental)
+## Emmitted when player enters exit door of level
+signal level_complete
 # Constants
 @onready var animator = $Pivot/AnimatedSprite2D
 const SPEED = 70.0
@@ -99,6 +102,7 @@ func _on_mouth_area_entered(area: Area2D) -> void:
 	# Detects exit. Kinda weird to be here, but works for now
 	if(area.name == "Exit"):
 		print("Leave")
+		level_complete.emit()
 	
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Ability")):
