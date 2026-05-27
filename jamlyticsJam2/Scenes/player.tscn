@@ -15,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bis5c4csa7hu" path="res://Art/Sprites/dinkystinky_mud.png" id="11_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bo7spmjvvetkn" path="res://Art/Sprites/dinkystinky_air.png" id="13_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://dnbmr6efbbd75" path="res://Art/Sprites/dinkystinkyWater-Sheet-Chomp2.png" id="14_bi64h"]
+[ext_resource type="Texture2D" uid="uid://c7gt2eb86qcpq" path="res://Art/Sprites/Bubble_Idle(UPDATE).png" id="14_fs7ks"]
 [ext_resource type="Texture2D" uid="uid://kh6lcggafegy" path="res://Art/Sprites/dinkystinkyWater-Sheet-Chomp1.png" id="15_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://cmflsctcgpgur" path="res://Art/Sprites/Bubble_Pop(UPDATE).png" id="15_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://1ochhly2brs7" path="res://Art/Sprites/Bubble_Transform(UPDATE).png" id="16_olqyp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
 radius = 5.0
@@ -252,6 +255,54 @@ region = Rect2(32, 0, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
 atlas = ExtResource("4_fkybt")
 region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4w4b"]
+atlas = ExtResource("14_fs7ks")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5cax"]
+atlas = ExtResource("14_fs7ks")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj0x0"]
+atlas = ExtResource("14_fs7ks")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1uaf"]
+atlas = ExtResource("14_fs7ks")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hq81"]
+atlas = ExtResource("15_l6n3p")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cld6"]
+atlas = ExtResource("15_l6n3p")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o736f"]
+atlas = ExtResource("15_l6n3p")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketbw"]
+atlas = ExtResource("15_l6n3p")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4grkl"]
+atlas = ExtResource("15_l6n3p")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue0p1"]
+atlas = ExtResource("16_olqyp")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isbcs"]
+atlas = ExtResource("16_olqyp")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_142e3"]
+atlas = ExtResource("16_olqyp")
+region = Rect2(96, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtg1u"]
 atlas = ExtResource("14_bi64h")
@@ -795,6 +846,57 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_w4w4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5cax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj0x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1uaf")
+}],
+"loop": true,
+"name": &"Water_Ability_Idle",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hq81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o736f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4grkl")
+}],
+"loop": false,
+"name": &"Water_Ability_Pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue0p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isbcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_142e3")
+}],
+"loop": false,
+"name": &"Water_Ability_Transform",
+"speed": 6.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dtg1u")
 }, {
 "duration": 1.0,
@@ -895,7 +997,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -26)
 rotation = -0.0011858706
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"Neutral_Idle"
+animation = &"Water_Ability_Transform"
 flip_h = true
 
 [node name="Mouth" type="Area2D" parent="Pivot" unique_id=596518184]
@@ -906,6 +1008,9 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Mouth" unique_id=1657591187]
 shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="PopTimer" type="Timer" parent="." unique_id=1050781117]
+wait_time = 1.6999999999999997
 
 [connection signal="area_entered" from="Pivot/Mouth" to="." method="_on_mouth_area_entered"]
 [connection signal="body_entered" from="Pivot/Mouth" to="." method="_on_mouth_body_entered"]

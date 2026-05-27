@@ -6,6 +6,7 @@ signal eating_elemental(elemental)
 signal level_complete
 # Constants
 @onready var animator = $Pivot/AnimatedSprite2D
+@onready var pop_timer: Timer = $PopTimer
 const SPEED = 70.0
 const element_types = { # Easy way to determine type based on what's eaten
 	[1,0,0]: "Fire",
@@ -31,6 +32,7 @@ var type = "Neutral"
 var movable = true
 var stomach = [0, 0, 0] # [Fire, Water, Earth]
 var floating = false
+var alive = true
 
 # FUNCTIONS ----------------------------------------------------------------------
 func _ready() -> void:
@@ -39,28 +41,32 @@ func _ready() -> void:
 	animator.play()
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity. TODO: Can make own value instead of get_gravity() if want more customization later
-	if(floating):
-		velocity.y = 2 * -SPEED
-	elif(!is_on_floor()):
-		velocity += get_gravity() * delta
-	# Handles movement IF player currently not doing something else
-	if(movable):
-		# Gets direction from player (if any) and calculates x velocity while playing correct animation  
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			animator.animation = type + "_Walk"
-			velocity.x = direction * SPEED
+	# Currently only dies during water ability
+	if(alive):
+		# Add the gravity. TODO: Can make own value instead of get_gravity() if want more customization later
+		if(floating):
+			velocity.y = 2 * -SPEED
+		elif(!is_on_floor()):
+			velocity += get_gravity() * delta
+		# Handles movement IF player currently not doing something else
+		if(movable):
+			# Gets direction from player (if any) and calculates x velocity while playing correct animation  
+			var direction = Input.get_axis("move_left", "move_right")
+			if direction:
+				animator.animation = type + "_Walk"
+				velocity.x = direction * SPEED
+			else:
+				animator.animation = type + "_Idle"
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			# Flips sprite based on direction
+			if(direction < 0):
+				$Pivot.scale.x = -1 
+			elif(direction > 0):
+				$Pivot.scale.x = 1
 		else:
-			animator.animation = type + "_Idle"
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-		# Flips sprite based on direction
-		if(direction < 0):
-			$Pivot.scale.x = -1 
-		elif(direction > 0):
-			$Pivot.scale.x = 1
+			velocity.x = 0
 	else:
-		velocity.x = 0
+		velocity = Vector2(0,0)
 
 	move_and_slide()
 
@@ -133,8 +139,28 @@ func fire_ability():
 
 ## Makes player float while holding ability button. Called both when button pushed and released. 
 func water_ability():
-	floating = !floating
-	movable = !movable
+	if(is_on_floor()):
+		# Stop movement and play transform animation
+		movable = false
+		animator.play("Water_Ability_Transform")
+		await animator.animation_finished
+		# Start floating and start pop timer
+		floating = true
+		animator.animation = "Water_Ability_Idle"
+		animator.play()
+		pop_timer.start()
+		# If ability held too long then kill player
+		# TODO: Messy implementation, but works most of the time
+		await  pop_timer.timeout
+		alive = false
+		animator.play("Water_Ability_Pop")
+		await animator.animation_finished
+		visible = false
+	else:
+		# Stop timer and reset to normal state
+		pop_timer.stop()
+		floating = false
+		movable = true
 
 ## Spawns pushable rock next to player
 func earth_ability():
