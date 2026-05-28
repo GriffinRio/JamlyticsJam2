@@ -26,6 +26,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAE
 
 [node name="Player" parent="." unique_id=1362860936 instance=ExtResource("2_annsx")]
 position = Vector2(19, 288)
+type = null
 
 [node name="Fire" parent="." unique_id=1349371243 node_paths=PackedStringArray("path") instance=ExtResource("3_qbvga")]
 position = Vector2(64, 288)
