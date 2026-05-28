@@ -980,6 +980,9 @@ animations = [{
 radius = 4.0
 height = 12.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs7ks"]
+size = Vector2(96, 7)
+
 [node name="Player" type="CharacterBody2D" unique_id=1362860936 groups=["ButtonPressers"]]
 top_level = true
 script = ExtResource("1_v0iea")
@@ -991,7 +994,6 @@ shape = SubResource("CapsuleShape2D_6t5aa")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=348292701]
 position = Vector2(0, -6)
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1102710186]
 position = Vector2(0, -26)
@@ -1009,8 +1011,15 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Mouth" unique_id=1657591187]
 shape = SubResource("CapsuleShape2D_cvnsp")
 
+[node name="Quicksand" type="Area2D" parent="Pivot" unique_id=1823011800]
+position = Vector2(0, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Quicksand" unique_id=1170171159]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_fs7ks")
+
 [node name="PopTimer" type="Timer" parent="." unique_id=1050781117]
-wait_time = 1.6999999999999997
+wait_time = 1.2
 
 [connection signal="area_entered" from="Pivot/Mouth" to="." method="_on_mouth_area_entered"]
 [connection signal="body_entered" from="Pivot/Mouth" to="." method="_on_mouth_body_entered"]
