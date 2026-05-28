@@ -7,6 +7,7 @@ signal level_complete
 # Constants
 @onready var animator = $Pivot/AnimatedSprite2D
 @onready var pop_timer: Timer = $PopTimer
+@onready var tile_map: TileMapLayer = $"../TileMap"
 const SPEED = 70.0
 const element_types = { # Easy way to determine type based on what's eaten
 	[1,0,0]: "Fire",
@@ -28,7 +29,7 @@ var abilities = { # Easy way to link same button to different abilities
 var fire_scene = preload("res://Scenes/Abilities/Fireball.tscn")
 var earth_scene = preload("res://Scenes/Abilities/rock.tscn")
 # Variables
-var type = "Neutral"
+@export var type = "Neutral"
 var movable = true
 var stomach = [0, 0, 0] # [Fire, Water, Earth]
 var floating = false
@@ -173,7 +174,15 @@ func steam_ability():
 	floating = true
 
 func magma_ability():
-	print("Lava")
-
+	var coords = tile_map.local_to_map(position)
+	if(tile_map.get_cell_source_id(Vector2(coords.x + 1, coords.y + 1)) == -1):
+		print("Spawn Block")
+	else:
+		print("Can't Spawn")
+	
 func mud_ability():
-	print("Quicksand")
+	var collisions = $Pivot/Quicksand.get_overlapping_bodies()
+	for body in collisions:
+		if(body.name == "Wall"):
+			var wall = get_node("../SinkingWall")
+			wall.get_node("AnimationPlayer").play("Sink")
