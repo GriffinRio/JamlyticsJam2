@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 			# Flips sprite based on direction
 			if(direction < 0):
-				$Pivot.scale.x = -1 
+				$Pivot.scale.x = -1
 			elif(direction > 0):
 				$Pivot.scale.x = 1
 		else:
@@ -175,8 +175,10 @@ func steam_ability():
 
 func magma_ability():
 	var coords = tile_map.local_to_map(position)
-	if(tile_map.get_cell_source_id(Vector2(coords.x + 1, coords.y + 1)) == -1):
-		print("Spawn Block")
+	var new_tile = Vector2(coords.x + $Pivot.scale.x, coords.y)
+	if(tile_map.get_cell_source_id(new_tile) == -1):
+		print("Spwan")
+		tile_map.set_cell(new_tile, 1 ,Vector2(1,0))
 	else:
 		print("Can't Spawn")
 	
