@@ -24,7 +24,10 @@ func exit_level():
 		current_level += 1
 		switch_level(current_level, 0.75)
 	else:
-		print("End")
+		await fade(1.0, .5).finished
+		current_level_node.queue_free()
+		add_child(load("res://Scenes/Levels/End.tscn").instantiate())
+		await fade(0.0, .5).finished
 
 ## Loads a level based on index in the array. Fade duration allows for custimizable use cases
 func switch_level(level_index, fade_duration):

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bh8jn3bsv2bk7"]
+
+[ext_resource type="Script" uid="uid://7mw0waj1grw5" path="res://Scripts/end.gd" id="1_7lslv"]
+[ext_resource type="Texture2D" uid="uid://c13do1spposuu" path="res://Art/End/Ending_1.png" id="2_xeql3"]
+[ext_resource type="Texture2D" uid="uid://bop2lya3ch125" path="res://Art/End/Ending_2.png" id="3_hue06"]
+[ext_resource type="Texture2D" uid="uid://djjosf2o32eg0" path="res://Art/End/Ending_3.png" id="4_nwbwh"]
+[ext_resource type="Texture2D" uid="uid://oeeupabn5o7s" path="res://Art/End/Ending_4.png" id="5_elsml"]
+[ext_resource type="Texture2D" uid="uid://cn2gwi5uq55ig" path="res://Art/End/Ending_5.png" id="6_jtfrj"]
+[ext_resource type="Texture2D" uid="uid://cwyjns4qbil53" path="res://Art/End/Ending_6.png" id="7_ba2wx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mjaux"]
+
+[sub_resource type="Animation" id="Animation_8q2ff"]
+resource_name = "End"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xeql3"), ExtResource("3_hue06"), ExtResource("4_nwbwh"), ExtResource("5_elsml"), ExtResource("6_jtfrj"), ExtResource("7_ba2wx")]
+}
+
+[sub_resource type="Animation" id="Animation_i14py"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ImageTexture_mjaux")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_436ii"]
+_data = {
+&"End": SubResource("Animation_8q2ff"),
+&"RESET": SubResource("Animation_i14py")
+}
+
+[node name="End" type="Node2D" unique_id=479589315]
+script = ExtResource("1_7lslv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1769753065]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("ImageTexture_mjaux")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=890507679]
+libraries/ = SubResource("AnimationLibrary_436ii")

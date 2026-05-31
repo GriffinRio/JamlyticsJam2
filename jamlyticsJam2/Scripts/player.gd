@@ -73,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 ## Updates current type of the player based on what was eaten
 func update_type(element):
+	print("Update Type")
 	match element:
 		"Fire":
 			stomach[0] = 1
@@ -89,6 +90,7 @@ func update_type(element):
 
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Elementals")):
+		print("Body Found")
 		# Stops movement of player AND elemental being eaten
 		movable = false
 		eating_elemental.emit(body)
@@ -97,6 +99,7 @@ func _on_mouth_body_entered(body: Node2D) -> void:
 			animator.animation = type + "_Chomp"
 		else:
 			animator.animation = type + "_Big_Chomp"
+		animator.play()
 		await animator.animation_finished
 		# Update type and reset animator
 		update_type(body.element)
@@ -127,6 +130,9 @@ func _input(event: InputEvent) -> void:
 
 ## Spawns fireball and sends it in direction player is holding
 func fire_ability():
+	movable = false
+	animator.play("Fire_Ability")
+	await animator.animation_finished
 	# Get direction
 	var x_direction = Input.get_axis("move_left", "move_right")
 	# Y is flipped
@@ -137,6 +143,8 @@ func fire_ability():
 	owner.add_child(fireball)
 	# TODO: Test why this doesn't work before when Rock does.
 	fireball.position = $Pivot/Mouth.global_position
+	movable = true
+	animator.play()
 
 ## Makes player float while holding ability button. Called both when button pushed and released. 
 func water_ability():
@@ -165,9 +173,15 @@ func water_ability():
 
 ## Spawns pushable rock next to player
 func earth_ability():
+	# TODO: Animation looks a bit odd with how I'm spawning rock
+	movable = false
+	animator.play("Earth_Ability")
+	await animator.animation_finished
 	var rock = earth_scene.instantiate()
 	rock.position = global_position + Vector2($Pivot.scale.x * 25, -5)
 	owner.add_child(rock)
+	movable = true
+	animator.play()
 
 ## Called when player because steam type. Constant floating
 func steam_ability():
@@ -176,15 +190,30 @@ func steam_ability():
 func magma_ability():
 	var coords = tile_map.local_to_map(position)
 	var new_tile = Vector2(coords.x + $Pivot.scale.x, coords.y)
+	movable = false
+	animator.play("Magma_Ability")
+	await animator.animation_finished
 	if(tile_map.get_cell_source_id(new_tile) == -1):
-		print("Spwan")
 		tile_map.set_cell(new_tile, 1 ,Vector2(1,0))
 	else:
 		print("Can't Spawn")
+	movable = true
+	animator.play()
 	
 func mud_ability():
+	movable = false
+	animator.play("Mud_Transform_Ability")
+	await animator.animation_finished
 	var collisions = $Pivot/Quicksand.get_overlapping_bodies()
+	# TODO: Wall sinks while detect wrong wall
 	for body in collisions:
 		if(body.name == "Wall"):
 			var wall = get_node("../SinkingWall")
 			wall.get_node("AnimationPlayer").play("Sink")
+	animator.play("Mud_Ability")
+	var count = 2
+	while count > 0:
+		if(animator.animation_looped):
+			count -= 1
+	movable = true
+	animator.play()
