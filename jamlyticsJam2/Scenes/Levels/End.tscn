@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bh8jn3bsv2bk7"]
 
-[ext_resource type="Script" uid="uid://7mw0waj1grw5" path="res://Scripts/end.gd" id="1_7lslv"]
-[ext_resource type="Texture2D" uid="uid://c13do1spposuu" path="res://Art/End/Ending_1.png" id="2_xeql3"]
-[ext_resource type="Texture2D" uid="uid://bop2lya3ch125" path="res://Art/End/Ending_2.png" id="3_hue06"]
-[ext_resource type="Texture2D" uid="uid://djjosf2o32eg0" path="res://Art/End/Ending_3.png" id="4_nwbwh"]
-[ext_resource type="Texture2D" uid="uid://oeeupabn5o7s" path="res://Art/End/Ending_4.png" id="5_elsml"]
-[ext_resource type="Texture2D" uid="uid://cn2gwi5uq55ig" path="res://Art/End/Ending_5.png" id="6_jtfrj"]
-[ext_resource type="Texture2D" uid="uid://cwyjns4qbil53" path="res://Art/End/Ending_6.png" id="7_ba2wx"]
+[ext_resource type="Script" uid="uid://7mw0waj1grw5" path="res://Scripts/endScript.gd" id="1_7lslv"]
+[ext_resource type="Texture2D" uid="uid://c13do1spposuu" path="res://Art/EndArt/Ending_1.png" id="2_xeql3"]
+[ext_resource type="Texture2D" uid="uid://bop2lya3ch125" path="res://Art/EndArt/Ending_2.png" id="3_hue06"]
+[ext_resource type="Texture2D" uid="uid://djjosf2o32eg0" path="res://Art/EndArt/Ending_3.png" id="4_nwbwh"]
+[ext_resource type="Texture2D" uid="uid://oeeupabn5o7s" path="res://Art/EndArt/Ending_4.png" id="5_elsml"]
+[ext_resource type="Texture2D" uid="uid://cn2gwi5uq55ig" path="res://Art/EndArt/Ending_5.png" id="6_jtfrj"]
+[ext_resource type="Texture2D" uid="uid://cwyjns4qbil53" path="res://Art/EndArt/Ending_6.png" id="7_ba2wx"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_mjaux"]
 

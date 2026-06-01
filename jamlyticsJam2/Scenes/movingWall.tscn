@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://d2fjng6abda66"]
 
-[ext_resource type="Script" uid="uid://bfl5duafgxj3g" path="res://Scripts/moving_wall.gd" id="1_j5wkp"]
+[ext_resource type="Script" uid="uid://bfl5duafgxj3g" path="res://Scripts/moving_wallScript.gd" id="1_j5wkp"]
+[ext_resource type="PackedScene" uid="uid://ciuv04usnme8b" path="res://Scenes/tileMap.tscn" id="2_distb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eywfq"]
 size = Vector2(32, 96)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eywfq"]
-size = Vector3(32, 96, 1)
 
 [sub_resource type="Animation" id="Animation_j5wkp"]
 resource_name = "Close"
@@ -123,9 +121,9 @@ metadata/_edit_group_ = true
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_eywfq")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall" unique_id=1291027326]
-position = Vector2(0, -48)
-mesh = SubResource("BoxMesh_eywfq")
+[node name="TileMap" parent="Wall" unique_id=2131322165 instance=ExtResource("2_distb")]
+position = Vector2(-16, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 253, 255, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2144229723]
 root_node = NodePath("../Wall")

@@ -1,22 +1,25 @@
 [gd_scene format=3 uid="uid://ciuv04usnme8b"]
 
-[ext_resource type="Texture2D" uid="uid://bbbnr6tryfjs5" path="res://Art/BasicTiles.png" id="1_vs0vc"]
+[ext_resource type="Texture2D" uid="uid://bddpi1240kkrd" path="res://Art/BasicTilesetRework.png" id="1_vs0vc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5el5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tls8f"]
 texture = ExtResource("1_vs0vc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_t0ble"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 0
-sources/1 = SubResource("TileSetAtlasSource_q5el5")
+sources/1 = SubResource("TileSetAtlasSource_tls8f")
 
 [node name="TileMap" type="TileMapLayer" unique_id=2131322165]
 tile_set = SubResource("TileSet_t0ble")

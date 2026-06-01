@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://knxqnyhfu7n"]
 
-[ext_resource type="Script" uid="uid://bf1dyw85ceydy" path="res://Scripts/button.gd" id="1_1cmwl"]
+[ext_resource type="Script" uid="uid://bf1dyw85ceydy" path="res://Scripts/buttonScript.gd" id="1_1cmwl"]
+[ext_resource type="PackedScene" uid="uid://ciuv04usnme8b" path="res://Scenes/tileMap.tscn" id="2_0kpiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkjnc"]
 size = Vector2(28, 12)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1cmwl"]
-size = Vector3(28, 12, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cmwl"]
 size = Vector2(28, 10)
@@ -19,10 +17,6 @@ script = ExtResource("1_1cmwl")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_lkjnc")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=529443109]
-position = Vector2(0, -6)
-mesh = SubResource("BoxMesh_1cmwl")
-
 [node name="Top" type="Area2D" parent="." unique_id=1564069048]
 collision_layer = 0
 collision_mask = 3
@@ -30,6 +24,10 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=2088930089]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_1cmwl")
+
+[node name="TileMap" parent="." unique_id=2131322165 instance=ExtResource("2_0kpiu")]
+position = Vector2(-16, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 2, 0, 0, 0)
 
 [connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
 [connection signal="body_exited" from="Top" to="." method="_on_top_body_exited"]

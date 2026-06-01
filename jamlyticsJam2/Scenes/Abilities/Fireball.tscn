@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnvq5277qo7ol"]
 
-[ext_resource type="Script" uid="uid://0gvo70u5nwq4" path="res://Scripts/fireball.gd" id="1_o3bqg"]
+[ext_resource type="Script" uid="uid://0gvo70u5nwq4" path="res://Scripts/fireballScript.gd" id="1_o3bqg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gk7c"]
 radius = 5.0

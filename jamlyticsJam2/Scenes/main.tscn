@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://bmjd6ko8nbidx"]
 
-[ext_resource type="Script" uid="uid://bvi8yw7o6f6g1" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://bvi8yw7o6f6g1" path="res://Scripts/mainScript.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cl5op3swnwie0" path="res://Scenes/Levels/Level1.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://got82xaljge1" path="res://Scenes/Levels/Level2.tscn" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://b735qpffd8ww" path="res://Scenes/Levels/Level3.tscn" id="4_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dvimfdtfqcffw" path="res://Scenes/Levels/Level4.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cq3usrxuxwknx" path="res://Scenes/Levels/Level5.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://dh28x5q7r4jby" path="res://Scenes/Levels/Level6.tscn" id="7_ynf5e"]
+
+[sub_resource type="Theme" id="Theme_6bp64"]
+default_font_size = 30
 
 [node name="Main" type="Node2D" unique_id=2065038989]
 script = ExtResource("1_jjgbg")
@@ -28,6 +31,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1523958821]
 custom_minimum_size = Vector2(100, 0)
@@ -47,9 +51,17 @@ theme_override_constants/separation = 7
 layout_mode = 2
 text = "Play"
 
-[node name="LevelSelect" type="Button" parent="UI/VBoxContainer" unique_id=774008266]
-layout_mode = 2
-text = "Level Select"
+[node name="Label" type="Label" parent="UI" unique_id=726875459]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 167.0
+offset_top = 50.0
+offset_right = 467.0
+offset_bottom = 137.0
+theme = SubResource("Theme_6bp64")
+text = "Dinky Stinky's Quest For Pokemon Cards"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
 
 [connection signal="button_down" from="UI/VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
-[connection signal="button_down" from="UI/VBoxContainer/LevelSelect" to="." method="_on_level_select_button_down"]
