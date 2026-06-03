@@ -5,6 +5,6 @@ This was our first ever game. We made many mistakes, wasted lots of time on easy
 If you would like to play it:
 https://griffinrio.itch.io/dinky-stinkys-quest-for-pokemon-cards
 
-Code by Griffin Guyer
-Art by Kenny Phillips
+Code by Griffin Guyer \n Art by Kenny Phillips
+
 Made in Godot 4.6
